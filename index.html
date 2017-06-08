@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="custum.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.1/css/bulma.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" media="all" />
+
+</head>
+
+<body>
+    <section class="hero is-dark is-bold">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">
+                    Vehicle Dashboard
+                </h1>
+                <h2 class="subtitle">
+                    The realtime data is recorded and replayed and pushed from backend server.
+                </h2>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="board">
+            <canvas id="engine_speed"></canvas>
+            <canvas id="vehicle_speed"></canvas>
+            <canvas id="temp"></canvas>
+            <div id="temp_icon">
+                <i class="fa fa-thermometer-full" aria-hidden="true"></i>
+            </div>
+            <canvas id="fuel"></canvas>
+            <img id="fuel_icon" src="fuel.png" height="" width="">
+        </div>
+    </div>
+
+    <section>
+        <hr>
+        <div class="container">
+            <div class="content has-text-centered">
+                <p>
+                    Created by <a href="https://github.com/chuanjin">Chuan Jin</a>. The source code is licensed
+                    <a href="http://opensource.org/licenses/mit-license.php">MIT</a>.
+                    <p>
+                        <a class="icon" href="https://github.com/chuanjin/gauge">
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </p>
+            </div>
+        </div>
+    </section>
+
+    <script src="gauge.min.js"></script>
+    <script src="app.js"></script>
+
+</body>
+
+</html>

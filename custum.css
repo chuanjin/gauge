@@ -1,0 +1,72 @@
+body {
+    padding: 0;
+    margin: 0;
+    background: #B0B0C0;
+}
+
+#engine_speed {
+    position: absolute;
+    margin-top: 70px;
+    margin-left: 220px;
+}
+
+#vehicle_speed {
+    position: absolute;
+    margin-top: 3px;
+    margin-left: 410px;
+    z-index: 1;
+}
+
+#temp {
+    position: absolute;
+    margin-top: 5px;
+    margin-left: 750px;
+}
+
+#temp_icon {
+    position: absolute;
+    margin-top: 120px;
+    margin-left: 860px;
+    color: red;
+}
+
+#fuel {
+    position: absolute;
+    margin-top: 200px;
+    margin-left: 750px;
+}
+
+#fuel_icon {
+    position: absolute;
+    margin-top: 320px;
+    margin-left: 860px;
+}
+
+.board {
+    background: rgb(125, 126, 125);
+    /* Old browsers */
+    background: -moz-radial-gradient(center, ellipse cover, rgba(125, 126, 125, 1) 0%, rgba(14, 14, 14, 1) 100%);
+    /* FF3.6+ */
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(125, 126, 125, 1)), color-stop(100%, rgba(14, 14, 14, 1)));
+    /* Chrome,Safari4+ */
+    background: -webkit-radial-gradient(center, ellipse cover, rgba(125, 126, 125, 1) 0%, rgba(14, 14, 14, 1) 100%);
+    /* Chrome10+,Safari5.1+ */
+    background: -o-radial-gradient(center, ellipse cover, rgba(125, 126, 125, 1) 0%, rgba(14, 14, 14, 1) 100%);
+    /* Opera 12+ */
+    background: -ms-radial-gradient(center, ellipse cover, rgba(125, 126, 125, 1) 0%, rgba(14, 14, 14, 1) 100%);
+    /* IE10+ */
+    background: radial-gradient(ellipse at center, rgba(125, 126, 125, 1) 0%, rgba(14, 14, 14, 1) 100%);
+    /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7d7e7d', endColorstr='#0e0e0e', GradientType=1);
+    /* IE6-9 fallback on horizontal gradient */
+    margin-top:50px;
+    margin-bottom:50px;
+    margin-left:0;
+    margin-right:0;
+
+    height: 400px;
+    width: auto;
+    -webkit-border-radius: 35%;
+    -webkit-box-shadow: inset 0 -2px 2px rgba(0, 0, 0, 0.5),
+    inset 0 2px 5px rgba(255, 255, 255, 0.8), 0 0 10px #000;
+}
