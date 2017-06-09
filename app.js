@@ -1,3 +1,75 @@
+var client;
+var reconnectTimeout = 2000;
+var port = 1884;
+var host = "127.0.0.1"
+var topic = "+/#"
+
+function MQTTconnect() {
+    client = new Paho.MQTT.Client(
+            host,
+            port,
+            "web_" + parseInt(Math.random() * 100, 10));
+    var options = {
+        timeout: 3,
+        cleanSession: false,
+        onSuccess: onConnect,
+        onFailure: function (message) {
+            console.log("Fail to connect!")
+            setTimeout(MQTTconnect, reconnectTimeout);
+        }
+    };
+
+    client.onConnectionLost = onConnectionLost;
+    client.onMessageArrived = onMessageArrived;
+    client.connect(options);
+}
+
+function onConnect() {
+    // Connection succeeded; subscribe to our topic
+    client.subscribe(topic, {qos: 0});
+    console.log("Connected!")
+}
+
+function onConnectionLost(response) {
+    setTimeout(MQTTconnect, reconnectTimeout);
+};
+
+function onMessageArrived(message) {
+    var from = message.destinationName;
+    var payload = message.payloadString;
+    topic_arr = from.split("/")
+    topic = topic_arr[topic_arr.length - 1]
+
+    if (topic == "vehicle_speed" ) {
+        vehicle_gauge.value = payload
+    }
+    else if (topic == "engine_speed") {
+        engine_gauge.value = payload
+    }
+    else if (topic == "fuel") {
+        fuel_gauge.value = payload
+    }
+    else if (topic == "temp") {
+        temp_gauge.value = payload
+    }
+};
+
+function sendData(topic, data) {
+    message = new Paho.MQTT.Message(data);
+    message.destinationName = topic;
+    client.send(message);
+}
+
+function startProg() {
+    sendData("cmd/program", "on")
+}
+
+function stopProg() {
+    sendData("cmd/program", "off")
+}
+
+
+
 var engine_gauge = new RadialGauge({
     renderTo: 'engine_speed',
     width: 250,
@@ -105,7 +177,7 @@ var fuel_gauge = new RadialGauge({
 }).draw();
 
 
-var fuel_gauge = new RadialGauge({
+var temp_gauge = new RadialGauge({
     renderTo: "temp",
     width: 200,
     height: 200,
@@ -140,3 +212,4 @@ var fuel_gauge = new RadialGauge({
 
 
 
+MQTTconnect();
