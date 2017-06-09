@@ -1,7 +1,7 @@
 var client;
 var reconnectTimeout = 20000;
 var port = 1884;
-var host = "127.0.0.1"
+var host = "188.166.10.252"
 var topic = "+/#"
 
 function MQTTconnect() {
