@@ -1,5 +1,5 @@
 var client;
-var reconnectTimeout = 2000;
+var reconnectTimeout = 20000;
 var port = 1884;
 var host = "127.0.0.1"
 var topic = "+/#"

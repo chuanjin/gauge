@@ -7,39 +7,39 @@ body {
 #engine_speed {
     position: absolute;
     margin-top: 70px;
-    margin-left: 220px;
+    margin-left: 150px;
 }
 
 #vehicle_speed {
     position: absolute;
     margin-top: 3px;
-    margin-left: 410px;
+    margin-left: 350px;
     z-index: 1;
 }
 
 #temp {
     position: absolute;
     margin-top: 5px;
-    margin-left: 750px;
+    margin-left: 700px;
 }
 
 #temp_icon {
     position: absolute;
     margin-top: 120px;
-    margin-left: 860px;
+    margin-left: 820px;
     color: red;
 }
 
 #fuel {
     position: absolute;
     margin-top: 200px;
-    margin-left: 750px;
+    margin-left: 700px;
 }
 
 #fuel_icon {
     position: absolute;
     margin-top: 320px;
-    margin-left: 860px;
+    margin-left: 820px;
 }
 
 .board {
@@ -59,14 +59,21 @@ body {
     /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7d7e7d', endColorstr='#0e0e0e', GradientType=1);
     /* IE6-9 fallback on horizontal gradient */
-    margin-top:50px;
-    margin-bottom:50px;
-    margin-left:0;
-    margin-right:0;
-
-    height: 400px;
-    width: auto;
+    margin-top: 100px;
+    margin-bottom: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 15px;
+    position: relative;
+    height: 450px;
+    width: 1150px;
     -webkit-border-radius: 35%;
     -webkit-box-shadow: inset 0 -2px 2px rgba(0, 0, 0, 0.5),
     inset 0 2px 5px rgba(255, 255, 255, 0.8), 0 0 10px #000;
+}
+
+#btn {
+    margin-top:10px;
+    margin-bottom: 80px;
+    padding-left: 45%;
 }
