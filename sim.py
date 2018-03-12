@@ -22,7 +22,7 @@ class StoppableThread(threading.Thread):
         return self._stop_event.is_set()
 
 
-def on_connect(mosq, obj, rc):
+def on_connect(self, mosq, obj, rc):
     print("Connected to MQTT broker: rc="+str(rc))
     mqttc.subscribe('cmd/program')
 
