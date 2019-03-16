@@ -6,6 +6,7 @@ from random import randint, random
 
 PORT=1883
 HOST=sys.argv[1]
+PREFIX="chuanjin/gauge/"
 
 class StoppableThread(threading.Thread):
     """Thread class with a stop() method. The thread itself has to check
@@ -31,7 +32,7 @@ def on_message(mosq, userdata, msg):
     payload = msg.payload.decode("utf-8")
     print("Got topic: " + msg.topic + ", message: " + msg.payload.decode("utf-8"))
     if payload == 'on' and (not program or program.stopped()) :
-        print "starting..."
+        print("starting...")
         try:
             program = StoppableThread(target = start_program)
             program.start()
@@ -44,10 +45,10 @@ def on_message(mosq, userdata, msg):
             program = threading.Thread(target = start_program)
             program.start()
     elif payload == 'off':
-        mqttc.publish('engine_speed', 0, retain=True)
-        mqttc.publish('vehicle_speed', 0, retain=True)
-        mqttc.publish('temp', 0, retain=True)
-        mqttc.publish('fuel', 0, retain=True)
+        mqttc.publish(PREFIX + 'engine_speed', 0, retain=True)
+        mqttc.publish(PREFIX + 'vehicle_speed', 0, retain=True)
+        mqttc.publish(PREFIX + 'temp', 0, retain=True)
+        mqttc.publish(PREFIX + 'fuel', 0, retain=True)
         stop_program()
 
 def mqttHandler():
@@ -99,13 +100,13 @@ def start_program():
     temp = 0
     fuel = 7
     while program and not program.stopped():
-        mqttc.publish('temp', temp, retain=True)
+        mqttc.publish(PREFIX + 'temp', temp, retain=True)
         time.sleep(random())
-        mqttc.publish('fuel', fuel, retain=True)
+        mqttc.publish(PREFIX + 'fuel', fuel, retain=True)
         time.sleep(random())
-        mqttc.publish('engine_speed', engine_speed, retain=True)
+        mqttc.publish(PREFIX + 'engine_speed', engine_speed, retain=True)
         time.sleep(random())
-        mqttc.publish('vehicle_speed', vehicle_speed, retain=True)
+        mqttc.publish(PREFIX + 'vehicle_speed', vehicle_speed, retain=True)
         time.sleep(random())
         engine_speed, vehicle_speed = update_speed(engine_speed, vehicle_speed)
         temp, fuel = update_temp_fuel(start_time)

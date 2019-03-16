@@ -1,8 +1,8 @@
 var client;
 var reconnectTimeout = 20000;
-var port = 1884;
-var host = "188.166.10.252"
-var topic = "+/#"
+var port = 443;
+var host = "iot.eclipse.org"
+var topic = "chuanjin/gauge/#"
 
 function MQTTconnect() {
     client = new Paho.MQTT.Client(
@@ -12,6 +12,7 @@ function MQTTconnect() {
     var options = {
         timeout: 3,
         cleanSession: false,
+        useSSL: true,
         onSuccess: onConnect,
         onFailure: function (message) {
             console.log("Fail to connect!")
