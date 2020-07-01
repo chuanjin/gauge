@@ -52,6 +52,8 @@ def on_message(mosq, userdata, msg):
         stop_program()
 
 def mqttHandler():
+    token= "ybaY3hXyE20SjmibgKuaDhH0snizmYjKXjyQoldRc3xleDkieEiFMPu20CrcoAKc"
+    mqttc.username_pw_set(username=token, password=token)
     mqttc.connect(HOST, PORT, keepalive=100)
 
     while True:
